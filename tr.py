@@ -19,4 +19,7 @@ while True:
     result += subresult
 s.close()
 
-print result.decode('utf-8')
+if sys.stdout.isatty():
+    print result.decode('utf-8')  # let's python determine the right TTY's codec
+else:
+    print result  # utf-8 encoded
